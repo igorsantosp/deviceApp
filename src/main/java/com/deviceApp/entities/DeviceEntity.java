@@ -1,6 +1,6 @@
 package com.deviceApp.entities;
 
-import com.deviceApp.dtos.DeviceDTO;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "DEVICE")
+@Table(name = "device")
 public class DeviceEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -26,15 +26,13 @@ public class DeviceEntity {
     @Column(nullable = false)
     private String brand;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(nullable = false)
-    private StateEnum state;
+    private String state;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime creationTime;
 
 
-   public DeviceDTO getDto(){
-       return new DeviceDTO(this.getName(),this.getBrand(),this.getState());
-   }
+
 }
