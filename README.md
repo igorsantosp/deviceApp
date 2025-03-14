@@ -1,7 +1,7 @@
 # 📱 Device Management API
 
 ## 📌 Overview
-The **Device Management API** is a RESTful service for managing devices. It supports CRUD operations, filtering by brand/state, and enforces business rules such as preventing updates/deletions of in-use devices. The application is built with **Spring Boot**, uses **MySQL** for persistence, and is containerized with **Docker**.
+The **Device App** is a RESTful service for managing devices. It supports CRUD operations, filtering by brand/state, and enforces business rules such as preventing updates/deletions of in-use devices. The application is built with **Spring Boot**, uses **MySQL** for persistence, and is containerized with **Docker**.
 
 ## ⚡ Features
 - ✅ Create a new device
@@ -52,6 +52,7 @@ mvn spring-boot:run
 ```
 
 ### 📦 Running with Docker RECOMMENDED
+First be sure that you are the last jar of you code generated (can be obtained running mvn clean install for example) then follow:
 To start the **API & MySQL** using Docker:
 ```sh
 docker-compose up --build
@@ -91,10 +92,6 @@ Liquibase manages the DB schema. A sample device entry is preloaded with this in
 -brand: "BrandX"
 -state: "AVAILABLE"
 
-To apply migrations manually:
-```sh
-mvn liquibase:update
-```
 
 ## 🔄 Stopping the App
 To stop Docker containers:
@@ -102,11 +99,14 @@ To stop Docker containers:
 docker-compose down
 ```
 
+## 📋 Documentation - Using Swagger
+- Swagger is accessible by this path: http://{host:port}/swagger-ui/index.html
+
 ## 📌 Future Improvements
 - 📊 Add pagination for `GET /api/devices`
 - 🔐 Implement authentication & authorization
-- 📡 Integrate Swagger for API documentation
 
+---
 
 🚀 **Happy Coding!** 🎯
 
